@@ -1,0 +1,157 @@
+.App {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background: #13143e;
+}
+
+section {
+  margin-top: 30px;
+  width: 70%;
+}
+section ul {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+section ul li {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.teste {
+  display: flex;
+}
+
+.animations__item {
+  position: relative;
+  top: 250px;
+  left: 300px;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 30%;
+}
+.animations__item-1 {
+  position: absolute;
+  right: 17.5%;
+  top: 0px;
+  width: 280.38px;
+  height: 209.52px;
+}
+.animations__item-2 {
+  position: absolute;
+  left: 54.5%;
+  width: 209.52px;
+  height: 280.38px;
+}
+.animations__item-3 {
+  position: absolute;
+  right: 44%;
+  top: 49.5%;
+  width: 209.52px;
+  height: 280.38px;
+}
+.animations__item-4 {
+  position: absolute;
+  left: 28%;
+  top: 75%;
+  width: 280.38px;
+  height: 209.52px;
+}
+
+.column-1 {
+  position: absolute;
+  left: 70%;
+  top: 32%;
+}
+
+.column-2 {
+  position: absolute;
+  left: 5%;
+  top: 3%;
+  box-shadow: 0px 14px 34px rgba(160, 25, 75, 0.4);
+}
+
+.column-3 {
+  position: absolute;
+  left: 83.5%;
+  top: 32%;
+}
+
+.column-4 {
+  position: absolute;
+  left: 20.5%;
+  top: 3%;
+  box-shadow: 0px 14px 34px rgba(117, 31, 167, 0.4);
+}
+
+.column-5 {
+  position: absolute;
+  left: 70%;
+  top: 67%;
+}
+
+.column-6 {
+  position: absolute;
+  left: 36.2%;
+  top: 3%;
+  box-shadow: 0px 14px 34px rgba(160, 30, 106, 0.4);
+}
+
+.column-7 {
+  position: absolute;
+  left: 83.5%;
+  top: 67%;
+}
+
+.column-8 {
+  position: absolute;
+  left: 52%;
+  top: 3%;
+  box-shadow: 0px 14px 34px rgba(27, 84, 175, 0.4);
+}
+
+@media (max-width: 1300px) {
+  .column-5, .column-7 {
+    margin-top: 40px !important;
+  }
+
+  .animations__item-1 {
+    right: 17.5%;
+  }
+  .animations__item-2 {
+    left: 51.5%;
+  }
+  .animations__item-3 {
+    right: 46.5%;
+  }
+  .animations__item-4 {
+    left: 23%;
+  }
+}
+aside {
+  width: 400px;
+  height: 884px;
+  margin: 30px;
+  /* Primary */
+  background: #092d6a;
+  box-shadow: 0px 14px 34px rgba(34, 37, 169, 0.4);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+aside img {
+  width: 400px;
+}
+
+/*# sourceMappingURL=style.css.map */
