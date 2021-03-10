@@ -14,6 +14,15 @@ const Container = styled.div`
 class Conversation extends React.Component {
   state = initialData;
 
+
+  sendData = (taskId) => {
+  
+    const task = this.state.tasks[taskId]
+    const conversation = task.content
+   
+    this.props.parentCallback({conversationData : conversation});
+  }   
+
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
@@ -30,7 +39,7 @@ class Conversation extends React.Component {
 
     const start = this.state.columns[source.droppableId];
     const finish = this.state.columns[destination.droppableId];
-    console.log(start)
+  
 
     if (start === finish) {
       const newTaskIds = Array.from(start.taskIds);
@@ -49,7 +58,8 @@ class Conversation extends React.Component {
           [newColumn.id]: newColumn,
         },
       };
-      console.log(newState)
+  
+      
       this.setState(newState);
       return;
     }
@@ -79,13 +89,13 @@ class Conversation extends React.Component {
               
 
 
-
+                this.sendData(draggableId);
 
               const newFinish = {
                 ...finish,
                 taskIds: finishTaskIds,
               };
-              console.log(finish.id)
+            
               const newState = {
                 ...this.state,
                 columns: {
@@ -118,7 +128,7 @@ class Conversation extends React.Component {
                 taskId => this.state.tasks[taskId],
               );
              
-                  console.log(columnId)
+            
                   return <Column key={column.id} column={column} tasks={tasks} />;
               
           

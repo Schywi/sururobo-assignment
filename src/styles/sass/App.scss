@@ -38,6 +38,46 @@ section {
   display:flex;
 }
 .animations__item {
+  color:white;
+  &-div { 
+    transition: 2s ;
+   
+  } 
+  &-h {
+   
+    &1{
+      font-size: 2rem;
+      position:relative;
+     z-index: 20;
+      top:50%;
+      right: 5.5%;
+    }
+     
+  &2{ 
+    
+    z-index: 21;
+    position:absolute;
+    right:-25%;
+    top: 18%;
+    font-size: 2rem;
+    
+  }
+  &3{
+    z-index: 22; 
+    position:absolute;
+    left: -5%;
+    bottom:-20.5%;
+    font-size: 2rem;
+  }
+  &4{ 
+    z-index: 23;
+    position:absolute;
+    right:-38%;
+    bottom: -20%;
+    font-size: 2rem;
+  }
+
+  }
   position:relative;
    top:250px;
    left: 300px;
@@ -47,6 +87,8 @@ section {
    height: 30%;
    
   &-1{ 
+
+   
     position:absolute;
     right:17.5%;
     top:0px;
@@ -55,6 +97,7 @@ section {
     
   }
   &-2{ 
+  
     position:absolute;
     left:54.5%;
     width: 209.52px;
@@ -76,6 +119,84 @@ section {
   }
   
 
+}
+
+.animation {
+    &-1 {
+      animation: puzzle1 1s ;
+      animation-iteration-count: 1;
+
+      
+    }
+    &-2 {
+      animation: puzzle2 1s;
+      animation-iteration-count: 1;
+    
+    }
+    &-3 {
+      animation: puzzle3 1s !important;
+      animation-iteration-count: 1;
+    
+    }
+    &-4 {
+      animation: puzzle4 1s !important;
+      animation-iteration-count: 1;
+    
+    }
+
+}
+
+
+@keyframes puzzle1 {
+  0% {
+    transform: translateX(-200px);
+    opacity: 0;    
+  }
+  100% {
+    transform: translateX(0);
+    opacity:1;
+
+  }
+}
+
+@keyframes puzzle2 {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;    
+  }
+  100% {
+    transform: translateX(0);
+    opacity:1;
+
+  }
+}
+
+
+@keyframes puzzle3 {
+  0% {
+    transform: translatex(-100px) translatey(100px);
+    opacity: 0;    
+
+  }
+  100% {
+    transform:  translatex(0px) translatey(0px);
+    opacity:1;
+
+  }
+}
+
+
+@keyframes puzzle4 {
+  0% {
+    transform: translatex(100px) translatey(100px);
+    opacity: 0;    
+
+  }
+  100% {
+    transform:  translatex(0px) translatey(0px);
+    opacity:1;
+
+  }
 }
 
 .column-1 {

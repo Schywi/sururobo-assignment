@@ -14,6 +14,14 @@ const Container = styled.div`
 class Artificial extends React.Component {
   state = initialData;
 
+  sendData = (taskId) => {
+  
+    const task = this.state.tasks[taskId]
+    const artificial = task.content
+   
+    this.props.parentCallback({artificialData : artificial});
+  }  
+
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
@@ -30,7 +38,7 @@ class Artificial extends React.Component {
 
     const start = this.state.columns[source.droppableId];
     const finish = this.state.columns[destination.droppableId];
-    console.log(start)
+
 
     if (start === finish) {
       const newTaskIds = Array.from(start.taskIds);
@@ -49,7 +57,7 @@ class Artificial extends React.Component {
           [newColumn.id]: newColumn,
         },
       };
-      console.log(newState)
+
       this.setState(newState);
       return;
     }
@@ -78,21 +86,21 @@ class Artificial extends React.Component {
                const  dragnumber = draggableId.split(`task-`);
                if(dragnumber[1] <= 4) {
                 startTaskIds.splice(source.index, 0, `${draggableId+1}`);
-                console.log(dragnumber[1], startTaskIds);
+            
                } else {
               
                 startTaskIds.splice(source.index, 0, `${draggableId+1}`);
-                console.log(dragnumber[1], startTaskIds);
+            
                }
               
-
+               this.sendData(draggableId);
              
 
               const newFinish = {
                 ...finish,
                 taskIds: finishTaskIds,
               };
-              console.log(finish.id)
+  
               const newState = {
                 ...this.state,
                 columns: {
@@ -125,7 +133,7 @@ class Artificial extends React.Component {
                 taskId => this.state.tasks[taskId],
               );
              
-                  console.log(columnId)
+       
                   return <Column  key={column.id} column={column} tasks={tasks} />;
               
           

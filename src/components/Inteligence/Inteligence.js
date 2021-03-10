@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd';
 import initialData from './initial-data';
 import Column from './column';
+ 
 
 const Container = styled.div`
   display: flex;
@@ -13,6 +14,14 @@ const Container = styled.div`
 
 class Inteligence extends React.Component {
   state = initialData;
+
+  sendData = (taskId) => {
+  
+    const task = this.state.tasks[taskId]
+    const inteligence = task.content
+   
+    this.props.parentCallback({inteligenceData : inteligence});
+  }
 
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
@@ -49,7 +58,7 @@ class Inteligence extends React.Component {
           [newColumn.id]: newColumn,
         },
       };
-      console.log(newState)
+     
       this.setState(newState);
       return;
     }
@@ -74,16 +83,16 @@ class Inteligence extends React.Component {
               const finishTaskIds = Array.from(finish.taskIds);
                 finishTaskIds.splice(-1, 1);
                 const a =  finishTaskIds.splice(destination.index, 0, draggableId);
-                console.log(a);
+             
                 startTaskIds.splice(source.index, 0, `${draggableId+1}`);
 
-
-
+                this.sendData(draggableId);
+             
               const newFinish = {
                 ...finish,
                 taskIds: finishTaskIds,
               };
-              console.log(finish.id)
+            
               const newState = {
                 ...this.state,
                 columns: {
@@ -115,8 +124,9 @@ class Inteligence extends React.Component {
               const tasks = column.taskIds.map(
                 taskId => this.state.tasks[taskId],
               );
+               
              
-                  console.log(columnId)
+                 
                   return <Column key={column.id} column={column} tasks={tasks} />;
               
           

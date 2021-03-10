@@ -14,6 +14,14 @@ const Container = styled.div`
 class Emotional extends React.Component {
   state = initialData;
 
+  sendData = (taskId) => {
+  
+    const task = this.state.tasks[taskId]
+    const emotional = task.content
+   
+    this.props.parentCallback({emotionalData : emotional});
+  }   
+
   onDragEnd = result => {
     const { destination, source, draggableId } = result;
 
@@ -32,7 +40,7 @@ class Emotional extends React.Component {
     const finish = this.state.columns[destination.droppableId];
  
 
-    console.log(start)
+  
 
     if (start === finish) {
       const newTaskIds = Array.from(start.taskIds);
@@ -51,7 +59,7 @@ class Emotional extends React.Component {
           [newColumn.id]: newColumn,
         },
       };
-      console.log(newState)
+     
       this.setState(newState);
       return;
     }
@@ -80,13 +88,13 @@ class Emotional extends React.Component {
               
               
             
-            
+                this.sendData(draggableId);
             
               const newFinish = {
                 ...finish,
                 taskIds: finishTaskIds,
               };
-              console.log(finish.id)
+             
               const newState = {
                 ...this.state,
                 columns: {
@@ -95,8 +103,7 @@ class Emotional extends React.Component {
                   [newFinish.id]: newFinish,
                 },
               };
-              console.log(draggableId + 1);
-              console.log(newState)
+            
   
               this.setState(newState);
             } 
@@ -116,7 +123,7 @@ class Emotional extends React.Component {
                 taskId => this.state.tasks[taskId],
               );
              
-                  console.log(columnId)
+               
                   return <Column key={column.id} column={column} tasks={tasks} />;
               
           
