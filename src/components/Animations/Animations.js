@@ -9,14 +9,14 @@ import React ,  { useState , Fragment}  from 'react';
 const Animations = (fieldsData) =>  {
       
          
-         const aff = []
+         const animeDB = []
 
         const dataAnimations = fieldsData.fieldsData;
         const isData = Array.isArray(dataAnimations);
         if (isData === true) {
                 dataAnimations.map(item =>   {
                       
-                        aff.push(item);
+                        animeDB.push(item);
                      
                         
                  
@@ -29,7 +29,7 @@ const Animations = (fieldsData) =>  {
         return (
         <div className="animations__item">
             <div className="teste">
-                  {aff.map(item => {
+                  {animeDB.map(item => {
                         if(item.id === 1) {
                                
                                 return (
@@ -74,7 +74,7 @@ const Animations = (fieldsData) =>  {
             </div>
 
             <div className="teste">
-            {aff.map(item => {
+            {animeDB.map(item => {
                         if(item.id === 3) {
                                  
                                 return (
